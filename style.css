@@ -1,38 +1,52 @@
 body{
-    margin: 0px;
+    margin: 0 auto;
     padding: 0px;
     background-color:#FFFFFF;
-}
-
-.header {
-    font-family: 'Delius', cursive;
-    color: rgb(255, 255, 255);
     text-align: center;
-    width: 100%;
-    height: 700px;
-    position: fixed;
-    z-index: 1;
-    padding-top: 20px;
-    background-image: url(https://images.unsplash.com/photo-1551130598-e8f714182b2e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1527&q=80);
-    background-position: center;
-  }
-
-.header h1 {
-    font-size: 70px;
-    margin: 10px;
+    width: 80%;
 }
-
-
-.header a{
-    line-height: 1000px;
-    border-radius:25px;
-    padding: 20px;
-    margin: 10px;
+a {
+    line-height: 100px;
     text-decoration: none;
-    color: #FFFFFF;
-    font-size: 20px;
-    background-color: #724B3B;
+    color: #424242;
 }
-.header a:hover{
-    background-color: #946434;
+
+div{
+    border-bottom: 2px solid black;
+    font-family: 'Overpass', sans-serif;
+}
+
+img {
+    max-width: 500px;
+    max-height: 500px;
+    border: 1px solid #EEE0CB;
+}
+
+li{
+    display: inline;
+    align-items: center;
+    padding: 25px;  
+}
+
+h1 {
+    font-size: 50px;
+}
+p {
+    width: 60%;
+    margin: 20px auto;
+    font-size: 18px;
+}
+
+.navbar {
+    text-align: center;
+}
+
+.choice {
+    font-family: 'Overpass', sans-serif;
+}
+
+.logo  {
+    font-size: 50px;
+    color: black;
+    font-family: 'Bebas Neue', cursive;
 }

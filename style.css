@@ -13,8 +13,7 @@ body{
     position: fixed;
     z-index: 1;
     padding-top: 20px;
-    background-image: url(https://images.unsplash.com/photo-1551130598-e8f714182b2e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1527&q=80);
-    background-position: center;
+    
   }
 
 .header h1 {

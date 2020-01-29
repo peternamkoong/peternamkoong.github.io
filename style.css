@@ -39,6 +39,7 @@ a{
 .choice:hover::before{
     width:100%;
     justify-content: center;
+    transition: all ease-in-out 350ms;
 }
 .navbar .logo{
     font-size: 50px;
@@ -68,9 +69,14 @@ p {
 }
 .container-1 div{
     border: 1px #E8A652 solid;
+    height: 450px; 
     margin: 20px;
     padding: 10px;
     flex-basis:25%;
+}
+.container-1 div:hover{
+    transition: all ease-in-out 350ms;
+    background-color:#E8A652;
 }
 .container-1 img{
     max-height: 250px;

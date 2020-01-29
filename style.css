@@ -1,52 +1,94 @@
 body{
     margin: 0 auto;
-    padding: 0px;
-    background-color:#FFFFFF;
     text-align: center;
     width: 80%;
-}
-a {
-    line-height: 100px;
-    text-decoration: none;
-    color: #424242;
-}
-
-div{
-    border-bottom: 2px solid black;
     font-family: 'Overpass', sans-serif;
 }
+a{
+    text-decoration: none;
+}
+.navbar {
+    border-bottom: 2px solid black;
+}
+.navbar ul{
+    margin: 0;
+    padding: 0;
+}
 
-img {
+.navbar li{
+    display: inline-block;
+    align-items: center;
+    padding: 20px;  
+    position: relative;
+}
+.navbar a{  
+    color: #424242;
+}
+.navbar a:hover{
+    color: #E8A652;
+}
+.choice::before{
+    content: '';
+    display: block;
+    height: 5px;
+    background-color: #444;
+    position: relative;
+    top:-10px;
+    width: 0%;
+}
+.choice:hover::before{
+    width:100%;
+    justify-content: center;
+}
+.navbar .logo{
+    font-size: 50px;
+    color: black;
+    font-family: 'Bebas Neue', cursive;
+}
+.container img {
     max-width: 500px;
     max-height: 500px;
     border: 1px solid #EEE0CB;
 }
-
-li{
-    display: inline;
-    align-items: center;
-    padding: 25px;  
-}
-
 h1 {
     font-size: 50px;
+    font-family: 'Overpass', sans-serif
 }
 p {
     width: 60%;
     margin: 20px auto;
     font-size: 18px;
+    font-family: 'Overpass', sans-serif
 }
-
-.navbar {
-    text-align: center;
+.container-1{
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
 }
-
-.choice {
-    font-family: 'Overpass', sans-serif;
+.container-1 div{
+    border: 1px #E8A652 solid;
+    margin: 20px;
+    padding: 10px;
+    flex-basis:25%;
 }
-
-.logo  {
-    font-size: 50px;
-    color: black;
+.container-1 img{
+    max-height: 250px;
+}
+.container-1 h4{
     font-family: 'Bebas Neue', cursive;
+    font-size: 40px;
+    margin: 20px;
+    color: #000000;
+}
+.container-1 p{
+    color: #424242;
+}
+.recipe {
+    text-align: left;
+    font-family: 'Overpass', sans-serif;
+
+}
+.recipe li{
+    font-size: 18px;
 }

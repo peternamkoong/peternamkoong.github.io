@@ -68,7 +68,7 @@ p {
     
 }
 .container-1 div{
-    border: 1px #E8A652 solid;
+    border: 1px #B2967D solid;
     height: 450px; 
     margin: 20px;
     padding: 10px;
@@ -76,7 +76,7 @@ p {
 }
 .container-1 div:hover{
     transition: all ease-in-out 350ms;
-    background-color:#E8A652;
+    background-color:#EEE4E1;
 }
 .container-1 img{
     max-height: 250px;

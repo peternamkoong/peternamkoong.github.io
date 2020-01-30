@@ -2,12 +2,15 @@ body{
     margin: 0 auto;
     text-align: center;
     width: 80%;
+    max-width: 1080px;
     font-family: 'Overpass', sans-serif;
+    font-display: auto;
 }
 a{
     text-decoration: none;
 }
 .navbar {
+    justify-content: center;
     border-bottom: 2px solid black;
 }
 .navbar ul{
@@ -45,6 +48,7 @@ a{
     font-size: 50px;
     color: black;
     font-family: 'Bebas Neue', cursive;
+    font-display: auto;
 }
 .container img {
     max-width: 500px;
@@ -66,7 +70,6 @@ p {
     width: 80%;
     margin: 20px auto;
     font-size: 18px;
-    font-family: 'Overpass', sans-serif;
     text-align:left;
 }
 .container-1{
@@ -77,8 +80,9 @@ p {
 }
 .container-1 div{
     border: 1px #B2967D solid;
-    height: 450px; 
-    margin: 20px;
+    height: 600px; 
+    width: 450px;
+    margin: 10px;
     padding: 10px;
     flex-basis:25%;
 }
@@ -87,10 +91,11 @@ p {
     background-color:#EEE4E1;
 }
 .container-1 img{
-    max-height: 250px;
+    max-height: 400px;
 }
 .container-1 h4{
     font-family: 'Bebas Neue', cursive;
+    font-display: auto;
     font-size: 40px;
     margin: 20px;
     color: #000000;
@@ -101,6 +106,7 @@ p {
 .recipe {
     text-align: left;
     font-family: 'Overpass', sans-serif;
+    font-display: auto;
 
 }
 .recipe li{

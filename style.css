@@ -61,6 +61,11 @@ h2{
     text-align: left;
     padding: 10px;
 }
+h3{
+    text-align: left;
+    width: 80%;
+    margin: 20px auto;
+}
 
 .intro {
     text-align: center;
@@ -145,4 +150,12 @@ th, td {
     height: 300px;
     object-fit: cover;
     margin:20px;
+}
+.container .portrait {
+    height: 800px;
+    width: 300px;
+    float: right;
+    object-fit: cover;
+    margin: 10px;
+    border-radius: 20%;
 }

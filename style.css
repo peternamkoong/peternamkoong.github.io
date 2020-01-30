@@ -53,13 +53,21 @@ a{
 }
 h1 {
     font-size: 50px;
-    font-family: 'Overpass', sans-serif
+}
+h2{
+    text-align: left;
+}
+
+.intro {
+    text-align: center;
+    width: 60%;
 }
 p {
-    width: 60%;
+    width: 80%;
     margin: 20px auto;
     font-size: 18px;
-    font-family: 'Overpass', sans-serif
+    font-family: 'Overpass', sans-serif;
+    text-align:left;
 }
 .container-1{
     display:flex;
@@ -98,3 +106,12 @@ p {
 .recipe li{
     font-size: 18px;
 }
+table {
+    width: 80%;
+    margin: 20px auto;
+    font-size: 13px;
+    text-align: left;
+}
+th, td {
+    border-bottom: 1px solid #ddd;
+  }

@@ -4,28 +4,62 @@ let number = document.getElementsByClassName("number");
 let history = document.getElementById("history");
 let buttons = document.getElementsByTagName("button");
 let brackets = 0;
-let decimal = 0;
 let clean = 0;
+let operand = "";
 let operator = ['/','*','-','+'];
 let symbols = ['(',')'];
-let num = ['0'];
+let separators = ['/','*','-','+','(',')'];
 for (let b = 0; b < buttons.length; b++) {
     buttons[b].addEventListener("click",function(){
         //debugger;
         let id = buttons[b].getAttribute("id");
         let value = answer.innerText;
+
         if (id == 'clear'){
             history.innerText = "";
             clean = 0;
+            operand = "";
+            brackets = 0;
             value = "";
         }
         else if (id === 'backspace'){
-            value = value.slice(0, -1);
+            let end = value[value.length -1];
+            if (end === "/" || end === "*" || end === "+" || end ==="-" || end === ")" || end === "("){
+                let symbols = "+-*/()";
+                let start = 0;
+
+                value = value.slice(0, -1);
+                operand = operand.slice(0, -1);
+
+                for(let i = value.length-1; i >= 0; i--){
+                    if(symbols.includes(value[i])){
+                        start = i;
+                        break;
+                    }
+                }
+                if (value.length > 1){
+                    operand = value.substring(start+1, value.length);
+                }
+                else{
+                    operand = value.substring(start, value.length)
+                }
+            }
+            else{
+                value = value.slice(0, -1);
+                operand = operand.slice(0, -1);
+            }
         }
+
         else if (id ==='enter'){
             history.innerText = value + "=";
             if (value === ""){
                 value = "";
+            }
+            else if (brackets != 0){
+                value = "Error";
+            }
+            else if (value.includes("()")){
+                value = "Error";
             }
             else {
                 for (let i = 0; i<operator.length; i++) {
@@ -49,88 +83,80 @@ for (let b = 0; b < buttons.length; b++) {
                 value = id;
             }
         }
-
-
         else if (id === '('){
+            if (value === "Error"){
+                value = id;
+            }
+            else if (value === ""){
+                value = id;
+            }
+            else if (!isNaN(value)){
+                value += "*" + id;
+            }
+            else {
+                value += id;
+            }
             brackets += 1;
-            value += id;
-            console.log(brackets);
         }
         else if (id === ')') {
             if (brackets != 0){
                 brackets = brackets - 1;
                 value += id;
-                console.log(brackets);
             }
         }
         else if (id ===".") {
-            if (!value.includes(".")){
+            if (!operand.includes(".")){
                 if (value === "" || value.slice(-1) === "("){
                     value += "0" + id;
+                    operand +="0" + id;
                 }
                 else if (value === "Error"){
                     value = "0" + id;
+                    operand = "0"+id;
                 }
                 else{
                     value +=id;
+                    operand +=id;
                 }
                 clean = 0;
             }
-        }
-        else if (id === "0") {
-            if (value.slice(0)!="0"){
-                value +=id;
+            else {
             }
         }
+
+        //Operator Instructions
         else if (id === "/" || id === "*" || id === "+" || id ==="-"){
             let last = value.slice(-1);
-            console.log(last);
             if (value === "" || value === "Error"){
                 value = "0" + id;
             }
-            else if (value.slice(-1) === "/"){
-                value = value;
-            }
-            else if (value.slice(-1) === "*"){
-                value =value ;
-            }
-            else if (value.slice(-1) === "+"){
-                value = value;
-            }
-            else if (value.slice(-1) === "-"){
-                value = value;
-            }
-            else {
+            else if (value.slice(-1) != "/" && value.slice(-1) != "*" && value.slice(-1) != "+" && value.slice(-1) != "-"){
                 value += id;
             }
+            operand = "";
         }
+
+        //Number Instructions
         else {
             if (value === "Error"){
                 value = id;
+                operand = id;
             }
-            else if (clean === 1) {
-                if (!isNaN(value)){
-                    if (id === "/" || id === "*" || id ==="-" || id ==="+" || id === "."){
-                        value += id;
-                        clean = 0;
-                    }
-                    else if (value === "Error"){
-                        clean = 0;
-                        value = id; 
-                    }
-                    else {
-                        clean = 0;
-                        value = id; 
-                    }
+            else if (id === "0") {
+                if (operand.slice(0)!="0"){
+                    value +=id;
+                    operand += id;
                 }
-                else{
-                    clean = 0;
-                    value += id; 
-                }
+            }
+            else if (value.slice(-1) === ")"){
+                value += "*" + id;
+                operand = id;
             }
             else{
                 value +=id;  
+                operand += id;
             }
+            
         }
         answer.innerText = value;
     });

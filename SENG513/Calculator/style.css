@@ -6,7 +6,7 @@ body {
 .calculator {
     background-color:#FFFFFF ;
     width: 600px;
-    height: 900px;
+    height: 800px;
     padding:20px;
     margin: 0 auto;
     position: relative;
@@ -47,13 +47,13 @@ body {
     
 }
 .buttons{
-    height:650px;
+    height:620px;
     width: 600px;
 }
 button{
-    width: 130px;
-    height: 130px;
-    margin: 6px 10px;
+    width: 110px;
+    height: 110px;
+    margin: 7px 20px;
     padding: 0px;
     font-size:30px;
     border-radius:50%;

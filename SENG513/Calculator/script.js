@@ -9,6 +9,7 @@ let operand = "";
 let operator = ['/','*','-','+'];
 let symbols = ['(',')'];
 let separators = ['/','*','-','+','(',')'];
+let ops = "+-*/()";
 for (let b = 0; b < buttons.length; b++) {
     buttons[b].addEventListener("click",function(){
         //debugger;
@@ -25,14 +26,13 @@ for (let b = 0; b < buttons.length; b++) {
         else if (id === 'backspace'){
             let end = value[value.length -1];
             if (end === "/" || end === "*" || end === "+" || end ==="-" || end === ")" || end === "("){
-                let symbols = "+-*/()";
                 let start = 0;
 
                 value = value.slice(0, -1);
                 operand = operand.slice(0, -1);
 
                 for(let i = value.length-1; i >= 0; i--){
-                    if(symbols.includes(value[i])){
+                    if(ops.includes(value[i])){
                         start = i;
                         break;
                     }
@@ -49,8 +49,8 @@ for (let b = 0; b < buttons.length; b++) {
                 operand = operand.slice(0, -1);
             }
         }
-
         else if (id ==='enter'){
+
             history.innerText = value + "=";
             if (value === ""){
                 value = "";
@@ -62,11 +62,10 @@ for (let b = 0; b < buttons.length; b++) {
                 value = "Error";
             }
             else {
-                for (let i = 0; i<operator.length; i++) {
-                    if (value.slice(-1) === operator[i]){
-                        value = "Error";
-                        clean = 1;
-                    }
+                if (ops.includes(value[value.length-2])){
+                    value = "Error";
+                    clean = 1;
+                
                 }
                 if (value.slice(-1) ==="("){
                     value = "Error";

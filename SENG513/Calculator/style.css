@@ -20,7 +20,6 @@ body {
 .text{
     background-color: #e3e3e3;
     height:150px;
-
     margin: 15px 0px;
     border-style:solid;
     border-width:2px;
@@ -107,4 +106,18 @@ button:focus {
     border:solid;
     border-color:#849aaa;
     border-width:5px;
+}
+
+@media only screen and (max-device-width: 600px){
+    .calculator {
+        min-width: 100%;
+        max-width: 100%;
+    }
+    .buttons {
+        margin: 0 auto;
+        padding: 0;
+    }
+    buttons{
+        padding: 10%;
+    }
 }

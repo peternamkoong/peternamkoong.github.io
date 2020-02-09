@@ -1,8 +1,9 @@
 
 let answer = document.getElementById("input");
+let number = document.getElementsByClassName("number");
 let history = document.getElementById("history");
 let buttons = document.getElementsByTagName("button");
-let operator = document.getElementsByClassName("operator")[0].innerText;
+let operator = document.getElementsByClassName("operator");
 console.log(operator);
 let brackets = 0;
 let decimal = 0;
@@ -12,15 +13,16 @@ for (let b = 0; b < buttons.length; b++) {
     buttons[b].addEventListener("click",function(){
         let value = answer.innerText;
         let id = buttons[b].getAttribute("id");
-
-        if (id === 'clear'){
+        if (clean === 1) {
+            clean = 0;
+            value = id;
+        }
+        else if (id === 'clear'){
+            history.innerText = "";
             value = "";
         }
         else if (id === 'backspace'){
             value = value.slice(0, -1);
-        }
-        else if (value.length === 15) {
-            console.log("TOO LONG");
         }
         else if (id ==='enter'){
             history.innerText = value + "=";
@@ -33,10 +35,12 @@ for (let b = 0; b < buttons.length; b++) {
             e = e.replace("−", "-");
             value = eval(e);
             clean = 1;
+            console.log(clean);
         }
-        else if (clean === 1) {
-            clean = 0;
-            value = id;
+        else if (value.length === 15) {
+            if (clean === 1){
+                value = id;
+            }
         }
         else if (id === '('){
             brackets += 1;
@@ -46,13 +50,18 @@ for (let b = 0; b < buttons.length; b++) {
         else if (id === ')') {
             if (brackets != 0){
                 brackets = brackets - 1;
-                value+=id;
+                value += id;
                 console.log(brackets);
             }
         }
         else if (id ===".") {
-            if (value.slice(-1) != "."){
-                value +=id;
+            if (!value.includes(".")){
+                if (value === "" || value.slice(-1) === "("){
+                    value += "0" + id;
+                }
+                else{
+                    value +=id;
+                }
             }
         }
         else if (id === "0") {
@@ -61,7 +70,7 @@ for (let b = 0; b < buttons.length; b++) {
             }
         }
         else {
-                value +=id;   
+            value +=id;   
         }
         answer.innerText = value;
     });

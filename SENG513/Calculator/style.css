@@ -29,13 +29,17 @@ body {
     text-align: right;
     
 }
+.previous{
+    margin: 10px;
+    height: 40px;
+}
 #history{
     margin:10px 10px;
     font-size: 30px;
     color: #9e9e9e;
 }
 #input {
-    font-size:75px;
+    font-size:50px;
     margin: 5px 20px;
     border-width:2px;
     border-radius:10px;
@@ -69,6 +73,17 @@ button:focus {
 .number:active{
     border:solid;
     border-color:#afa496 ;
+    border-width:5px;
+}
+.brackets{
+    background-color: #E2F0CB;
+}
+.brackets:hover{
+    background-color: #cbd8b6;
+}
+.brackets:active{
+    border:solid;
+    border-color:#9EA88E;
     border-width:5px;
 }
 .operator{

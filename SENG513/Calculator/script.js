@@ -65,7 +65,10 @@ for (let b = 0; b < buttons.length; b++) {
                 if (ops.includes(value[value.length-2])){
                     value = "Error";
                     clean = 1;
-                
+                }
+                if (ops.includes(value[value.length-1])){
+                    value = "Error";
+                    clean = 1;
                 }
                 if (value.slice(-1) ==="("){
                     value = "Error";
@@ -77,7 +80,7 @@ for (let b = 0; b < buttons.length; b++) {
                 }
             }
         }
-        else if (value.length === 15) {
+        else if (value.length > 15) {
             if (clean === 1){
                 value = id;
             }

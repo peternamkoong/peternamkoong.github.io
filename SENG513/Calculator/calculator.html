@@ -8,12 +8,8 @@
     <body>
         <div class="calculator">
             <div class="text">
-                <div class = "previous">
-                    <p id = "history"></p>
-                </div>
-                <div class = "current">
-                    <p id = "input"></p>
-                </div>
+                    <input type="text" id = "history" value= "" disabled/>
+                    <input type="text" id = "input"  value = "" disabled/>
             </div>
             <div class = "buttons">
                 <button class = "brackets" id="(">(</button>
@@ -38,10 +34,10 @@
                 <br>
                 <button class = "number" id="0">0</button>
                 <button class = "number" id=".">.</button>
-                <button id="enter">=</button>
+                <button class = "operator" id="enter">=</button>
                 <button class = "operator" id="+">&plus;</button>
             </div>
         </div>
-        <script src="script.js"></script>
+        <script src="hopeful.js"></script>
     </body>
 </html>

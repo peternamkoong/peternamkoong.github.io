@@ -80,7 +80,7 @@ for (let b = 0; b < buttons.length; b++) {
                 }
             }
         }
-        else if (value.length > 15) {
+        else if (value.length >15) {
             if (clean === 1){
                 value = id;
             }
@@ -125,7 +125,6 @@ for (let b = 0; b < buttons.length; b++) {
             else {
             }
         }
-
         //Operator Instructions
         else if (id === "/" || id === "*" || id === "+" || id ==="-"){
             let last = value.slice(-1);

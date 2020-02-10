@@ -9,7 +9,7 @@ let operand = "";
 let operator = ['/','*','-','+'];
 let symbols = ['(',')'];
 let separators = ['/','*','-','+','(',')'];
-let ops = "+-*/()";
+let ops = "+-*/";
 for (let b = 0; b < buttons.length; b++) {
     buttons[b].addEventListener("click",function(){
         //debugger;
@@ -62,10 +62,10 @@ for (let b = 0; b < buttons.length; b++) {
                 value = "Error";
             }
             else {
-                if (ops.includes(value[value.length-2])){
-                    value = "Error";
-                    clean = 1;
-                }
+                // if (ops.includes(value[value.length-2])){
+                //     value = "Error";
+                //     clean = 1;
+                // }
                 if (ops.includes(value[value.length-1])){
                     value = "Error";
                     clean = 1;

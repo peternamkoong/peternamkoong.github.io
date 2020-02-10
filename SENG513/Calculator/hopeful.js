@@ -15,21 +15,40 @@ function clear() {
     setHistory("");
     setInput("");
     operand = "";
+    console.log("operand: "+ operand);
 } 
-function previousOperand(){
+function previousOperand(arr){
+    //debugger;
+    let symbols = "/*+-()";
+    let start = "";
+    for(let i = arr.length;i>=0;i--){
+        if (symbols.includes(arr[i])){
+            start = i+1;
+            console.log("start index: " + start );
+            break;
+        }
+        else{
+            start = 0;
+        }
+    }
+    console.log(arr.substring(start, arr.length));
+    return arr.substring(start, arr.length);
 
 }
 function backspace() {
+    //debugger;
     let value = getInput();
     let symbols = "/*+-()";
-    value = value.substring(0,value.length -1);
-    setInput(value);
-    if (symbols.includes(value[value.length-1])){
-        operand = operand.substring(0,operand.length-1);
+    if (symbols.includes(value[value.length-1]) && !isNaN(value[value.length-2])){
+        let arr = value.substring(0, value.length-1);
+        operand = previousOperand(arr);
+        value = arr;
     }
     else{
-        operand = previousOperand();
+        value = value.substring(0,value.length -1);
+        operand = operand.substring(0,operand.length-1);
     }
+    setInput(value);
     console.log("operand: "+ operand);
     return value;
 }
@@ -46,8 +65,10 @@ function setOperator(id) {
         setInput("0" + id);
     }
     operand ="";
+    console.log("operand: "+ operand);
 }
 
+//FIX ZERO conditions!!
 function setNumber(id) {
     let value = getInput();
     if (id === "0"){
@@ -56,15 +77,11 @@ function setNumber(id) {
             operand += id;
         }
     }
-    else if(operand[0] =="0"){
-        value = backspace();
-        setInput(value + id);
-        operand +=id;
-    }
     else{
         setInput(value + id);
         operand +=id;
     }
+    console.log("operand: "+ operand);
 }
 
 function setBrackets(id) {
@@ -82,6 +99,7 @@ function enter(){
     setHistory(past + "=");
     setInput(value);
     operand = getInput();
+    console.log("operand: "+ operand);
     
 }
 function setDecimal(){

@@ -71,11 +71,9 @@ function setOperator(id) {
 //FIX ZERO conditions!!
 function setNumber(id) {
     let value = getInput();
-    if (id === "0"){
-        if (operand[0]!="0" || operand.includes('.')){
-            setInput(value+id);
-            operand += id;
-        }
+    if (operand === "0") {
+        operand = id;
+        setInput(operand);
     }
     else{
         setInput(value + id);

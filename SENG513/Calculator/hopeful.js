@@ -19,7 +19,6 @@ function clear() {
     console.log("operand: "+ operand);
 } 
 function previousOperand(arr){
-    //debugger;
     let symbols = "/*+-()";
     let start = "";
     for(let i = arr.length;i>=0;i--){
@@ -37,7 +36,6 @@ function previousOperand(arr){
 
 }
 function backspace() {
-    //debugger;
     let value = getInput();
     let symbols = "/*+-()";
     if (symbols.includes(value[value.length-1]) && !isNaN(value[value.length-2])){
@@ -72,7 +70,7 @@ function setOperator(id) {
 
 //FIX ZERO conditions!!
 function setNumber(id) {
-    //debugger;
+
     let value = getInput();
     if (submit === true){
         operand = id;
@@ -108,12 +106,12 @@ function setBrackets(id) {
             setInput(getInput() + id);
         }
     }
+    operand ="";
     currentDisplay = getInput();
     console.log("currentDisplay: " + currentDisplay);
 }
 
 function enter(){
-    debugger;
     let past = getInput();
     let value = "";
     try{

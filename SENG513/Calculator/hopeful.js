@@ -14,6 +14,7 @@ function setInput(input) {
 function clear() {
     setHistory("");
     setInput("");
+    value = "";
     operand = "";
     console.log("operand: "+ operand);
 } 
@@ -49,11 +50,11 @@ function backspace() {
         operand = operand.substring(0,operand.length-1);
     }
     setInput(value);
-    console.log("operand: "+ operand);
     return value;
 }
 
 function setOperator(id) {
+    
     let value = getInput();
     if (value != ""){
         let symbols = "/*+-";
@@ -64,59 +65,98 @@ function setOperator(id) {
     else{
         setInput("0" + id);
     }
+    currentDisplay = getInput();
+    console.log("currentDisplay: " + currentDisplay);
     operand ="";
-    console.log("operand: "+ operand);
 }
 
 //FIX ZERO conditions!!
 function setNumber(id) {
+    //debugger;
     let value = getInput();
-    if (operand === "0") {
+    if (submit === true){
         operand = id;
-        setInput(operand);
+        setInput(id);
+
+    }
+    else if (value[value.length-1] ===")"){
+        operand = id;
+        setInput (value + "*"+id);
+    }
+    else if (operand === "0") {
+        operand = id;
+        console.log(currentDisplay + id);
+        setInput(currentDisplay + id);
     }
     else{
         setInput(value + id);
         operand +=id;
     }
-    console.log("operand: "+ operand);
 }
 
 function setBrackets(id) {
-    setInput(getInput() + id);
+    if (submit === true){
+        operand = "";
+        setInput(id);
+    }
+    else {
+        let input = getInput();
+        if (id === "(" && (!isNaN(input[input.length-1]) || input[input.length-1] === ")")){
+            setInput(input + "*" + id);
+        }
+        else{
+            setInput(getInput() + id);
+        }
+    }
+    currentDisplay = getInput();
+    console.log("currentDisplay: " + currentDisplay);
 }
 
 function enter(){
+    debugger;
     let past = getInput();
+    let value = "";
     try{
-        value = eval(past);
+        if (past != "" && past != "Error"){
+            value = eval(past);
+        }
     }
     catch(e) {
         value = "Error";
+        operand = "";
+        currentDisplay = "";
     }
     setHistory(past + "=");
     setInput(value);
-    operand = getInput();
-    console.log("operand: "+ operand);
+    if (getInput() != "Error"){
+        operand = getInput();
+    }
+    else{
+        operand = "";
+    }
+    submit = true;
     
 }
 function setDecimal(){
-    if (operand === ""){
+    if (submit === true){
         setInput("0.");
         operand = "0.";
-        
+    }
+    else if (operand === ""){
+        setInput(currentDisplay + "0.");
+        operand = "0.";
     }
     else if (!operand.includes('.')){
         setInput(getInput() + '.');
         operand+=".";
     }
-    let symbols = ['/','*','+','-','(',')'];
-    console.log("operand: " + operand);
-
 }
+
+let currentDisplay = "";
 let operand = "";
+let submit = false;
+
 function calculator() {
-    
     let number = document.getElementsByClassName("number");
     for (let i = 0; i<number.length; i++){
         number[i].addEventListener('click', function(){
@@ -127,9 +167,11 @@ function calculator() {
             else{
                 setNumber(id);
             }
+            submit = false;
+            console.log("operand: " + operand);
         });
+        
     }
-
     let operator = document.getElementsByClassName("operator");
     for (let i = 0; i<operator.length; i++){
         operator[i].addEventListener('click', function(){
@@ -146,7 +188,9 @@ function calculator() {
             }
             else{
                 setOperator(id);
+                submit = false;
             }
+            console.log("operand: " + operand);
         });
     }
     
@@ -155,6 +199,8 @@ function calculator() {
         brackets[i].addEventListener('click', function(){
             let id = this.id;
             pair = setBrackets(id);
+            submit = false;
+            console.log("operand: " + operand);
         });
     }
 }

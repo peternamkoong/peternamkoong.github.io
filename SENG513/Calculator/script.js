@@ -162,6 +162,7 @@ function setOperator(id) {
     }
 
     currentDisplay = getInput();
+    console.log("CurrentDisplay: " + currentDisplay);
     operand ="";
 }
 
@@ -174,6 +175,7 @@ function setNumber(id) {
     if (submit === true){
         operand = id;
         setInput(id);
+        currentDisplay = "";
     }
     //If the tail of the Input was a ")", add a * operator in between it
     //and the number

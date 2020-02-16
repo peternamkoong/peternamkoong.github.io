@@ -133,10 +133,9 @@ button:focus {
         max-width: 100%;
     }
     .buttons {
-        margin: 0 auto;
-        padding: 0;
-    }
-    buttons{
-        padding: 10%;
+        margin: 0px auto;
+        padding: 0px;
+
+        
     }
 }

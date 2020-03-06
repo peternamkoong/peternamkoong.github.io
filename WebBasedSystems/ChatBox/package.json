@@ -1,5 +1,5 @@
 {
-    "name": "web-based-systems",
+    "name": "chatbox",
     "version": "1.0.0",
     "description": "Repository for SENG 513 - Web-Based Systems",
     "main": "index.js",
@@ -8,14 +8,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/peternamkoong/Web-Based-Systems.git"
+        "url": "git+https://github.com/peternamkoong/peternamkoong.github.io.git"
     },
     "author": "Kyoung Hwan Namkoong",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/peternamkoong/Web-Based-Systems/issues"
+        "url": "https://github.com/peternamkoong/peternamkoong.github.io.git/issues"
     },
-    "homepage": "https://github.com/peternamkoong/Web-Based-Systems#readme",
+    "homepage": "https://github.com/peternamkoong/peternamkoong.github.io.git#readme",
     "dependencies": {
         "express": "^4.17.1",
         "socket.io": "^2.3.0"

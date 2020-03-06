@@ -1,0 +1,48 @@
+<!--*
+/**********************************************
+ * Last Name:   Namkoong
+ * First Name:  Kyoung Hwan
+ * Student ID:  10125240
+ * Course:      SENG 513
+ * Tutorial:    05
+ * Assignment:  3
+ *********************************************
+*/-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kyoung Hwan Namkoong's Chatroom</title>
+        <link
+            href="https://fonts.googleapis.com/css?family=Sen&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container-0">
+            <h1>Kyoung Hwan's Chat Room</h1>
+        </div>
+        <div class="container-1">
+            <h3 id="chatHeader">Chat Box</h3>
+            <h3 id="userHeader">Online Users</h3>
+        </div>
+        <div class="container-2">
+            <div class="online">
+                <ul id="users"></ul>
+            </div>
+            <div class="chat">
+                <ul id="messages"></ul>
+            </div>
+        </div>
+        <div class="container-3">
+            <form action="">
+                <div class="inputBox">
+                    <input id="m" autocomplete="off" /><button>Send</button>
+                </div>
+            </form>
+        </div>
+        <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="user.js"></script>
+    </body>
+</html>

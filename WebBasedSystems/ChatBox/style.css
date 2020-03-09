@@ -67,11 +67,14 @@ body {
 #messages {
     height: 100%;
     overflow: auto;
-    display: -webkit-flex;
-    -webkit-flex-direction: column-reverse;
+    display: flex;
     flex-direction: column-reverse;
     word-wrap: break-word;
     list-style-type: none;
+    overflow-anchor: none;
+}
+#messages li:last-child {
+    margin-top: auto;
 }
 #messages li {
     padding: 10px 10px;

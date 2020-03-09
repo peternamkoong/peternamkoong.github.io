@@ -39,10 +39,10 @@ io.on('connect', function(socket) {
     socket.on('setNick', function(nick) {
         if (users.includes(nick)) {
             socket.username = 'user' + counter++;
-            socket.emit('nickCorrect', socket.username);
         } else {
             socket.username = nick;
         }
+        socket.emit('nickCorrect', socket.username);
         users.push(socket.username);
         //clear all the users in the "online Users" list
         io.emit('clearUsers');

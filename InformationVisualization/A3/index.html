@@ -137,7 +137,9 @@
                         .style("fill", d => color(fertilityById[d.id]))
                     let dotID = "dot COUNTRY-"+d.properties.name;
                     let domDots = document.getElementsByClassName(dotID);
-                    d3.select(domDots[0]).transition().style("fill",color(d[fieldColor])).attr("r",3.5);
+                    d3.select(domDots[0]).transition().attr("r",3.5).style("fill",function(d) {
+                        return color(d[fieldColor]);
+                    })
                     return tooltip.style("visibility", "hidden");
                 });
 
